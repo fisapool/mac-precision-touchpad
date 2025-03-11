@@ -101,3 +101,4 @@ If you want to build the C# dashboard:
 
 1. Make sure you have .NET SDK installed
 2. Run `launch_dashboard.bat` which will build and launch the application
+# Mac-Trackpad
