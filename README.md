@@ -101,4 +101,53 @@ If you want to build the C# dashboard:
 
 1. Make sure you have .NET SDK installed
 2. Run `launch_dashboard.bat` which will build and launch the application
+
+# Create .gitignore file
+Set-Content -Path ".gitignore" -Value @'
+# Visual Studio files
+.vs/
+obj/
+bin/
+*.user
+*.suo
+*.cache
+*.pdb
+*.dll
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# NuGet packages
+packages/
+*.nupkg
+
+# User-specific files
+*.rsuser
+*.userosscache
+*.sln.docstates
+
+# Build logs
+*.log
+*.tlog
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+'@
+
+# Add and commit .gitignore
+git add .gitignore
+git commit -m "chore: Add .gitignore file"
+git push origin main
+
+# Mac-Trackpad
 # Mac-Trackpad
