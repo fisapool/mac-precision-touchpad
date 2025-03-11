@@ -96,4 +96,4 @@ If tests fail:
 
 1. Check if all mock files are present
 2. Ensure the test configuration is correct
-3. Run the `check_structure.ps1` script to verify your environment 
+3. Run the `check_structure.ps1` script to verify your environment # Mac-Trackpad
