@@ -1,0 +1,38 @@
+# MacTrackpad CI/CD Pipeline
+name: MacTrackpad Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --no-restore
+    
+    - name: Fix test discovery
+      run: powershell ./src/MacTrackpadTest/fix-test-discovery.ps1
+    
+    - name: Run tests
+      run: powershell ./src/MacTrackpadTest/RunTests.ps1 -All -CI -OutputFormat json
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: src/MacTrackpadTest/TestResults/ 

@@ -1,0 +1,38 @@
+{
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./src",
+        "-p",
+        "*test*.py"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "src"
+    ],
+    "dotnet.preferCSharpExtension": true,
+    "env": {
+        "WDK_ROOT": "C:/Program Files (x86)/Windows Kits/10",
+        "WDK_INC_PATH": "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0"
+    },
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "C:/Program Files (x86)/Windows Kits/10/Include/wdf/kmdf/1.15",
+        "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km",
+        "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared",
+        "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km/crt"
+    ],
+    "C_Cpp.default.defines": [
+        "NT",
+        "DRIVER",
+        "_AMD64_",
+        "_WIN64"
+    ],
+    "C_Cpp.default.windowsSdkVersion": "10.0.22621.0",
+    "C_Cpp.default.intelliSenseMode": "windows-msvc-x64",
+    "C_Cpp.default.browse.path": [
+        "${workspaceFolder}",
+        "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0"
+    ]
+}

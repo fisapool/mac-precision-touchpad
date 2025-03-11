@@ -1,0 +1,35 @@
+; Mock INF file for testing
+[Version]
+Signature=" NT$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%ManufacturerName%
+CatalogFile=AmtPtpDevice.cat
+DriverVer=01/01/2023,1.0.0.0
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%DeviceName%=AmtPtp_Device, ACPI\PNP0C50
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+AmtPtpDevice.sys = 1
+
+[AmtPtp_Device.NT]
+CopyFiles=AmtPtp_Device.NT.Copy
+
+[AmtPtp_Device.NT.Copy]
+AmtPtpDevice.sys
+
+[DestinationDirs]
+DefaultDestDir = 12
+AmtPtp_Device.NT.Copy = 12
+
+[Strings]
+ManufacturerName="Mac Trackpad Driver Project"
+DiskName = "Mac Trackpad Driver Installation Disk"
+DeviceName="Apple Magic Trackpad"

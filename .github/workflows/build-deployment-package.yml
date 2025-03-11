@@ -1,0 +1,62 @@
+name: Build Deployment Package
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup WDK
+      shell: powershell
+      run: .\scripts\install_wdk.ps1
+      
+    - name: Verify Build Environment
+      shell: powershell
+      run: .\scripts\verify_build_env.ps1
+      
+    - name: Determine Version
+      id: get_version
+      shell: powershell
+      run: |
+        $version = "1.0.0"
+        if ("${{ github.ref }}".StartsWith("refs/tags/v")) {
+          $version = "${{ github.ref }}".Substring(11)
+        } else {
+          $version = "dev-${{ github.sha }}".Substring(0, 12)
+        }
+        echo "::set-output name=version::$version"
+      
+    - name: Build Driver and Tests
+      shell: powershell
+      run: .\build.bat Release
+      
+    - name: Create Deployment Package
+      shell: powershell
+      run: |
+        .\scripts\BuildDeploymentPackage.ps1 -Version ${{ steps.get_version.outputs.version }} -Configuration Release -IncludeTests -OutputPath .\Deploy
+      
+    - name: Upload Deployment Package
+      uses: actions/upload-artifact@v2
+      with:
+        name: MacTrackpadDriver-${{ steps.get_version.outputs.version }}
+        path: MacTrackpadDriver-${{ steps.get_version.outputs.version }}.zip
+        
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: MacTrackpadDriver-${{ steps.get_version.outputs.version }}.zip
+        name: Mac Trackpad Driver ${{ steps.get_version.outputs.version }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

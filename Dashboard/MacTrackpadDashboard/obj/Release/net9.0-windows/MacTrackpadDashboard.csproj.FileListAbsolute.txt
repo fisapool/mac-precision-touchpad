@@ -1,0 +1,6 @@
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\Dashboard\MacTrackpadDashboard\App.g.cs
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\Dashboard\MacTrackpadDashboard\MainWindow.g.cs
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\MainWindow.g.cs
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\App.g.cs
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\MacTrackpadDashboard_MarkupCompile.cache
+C:\Users\User\Downloads\mac-precision-touchpad-master (1)\Dashboard\MacTrackpadDashboard\obj\Release\net9.0-windows\MacTrackpadDashboard_MarkupCompile.lref

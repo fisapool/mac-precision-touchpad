@@ -1,0 +1,161 @@
+﻿<Window x:Class="MacTrackpadDashboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MacTrackpadDashboard"
+        mc:Ignorable="d"
+        Title="Mac Trackpad Dashboard" Height="600" Width="800"
+        Background="#F0F2F5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#0078D7" Padding="20">
+            <TextBlock Text="Mac Trackpad Driver Dashboard" 
+                       Foreground="White" 
+                       FontSize="24" 
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+        
+        <!-- Content -->
+        <ScrollViewer Grid.Row="1" Margin="20">
+            <StackPanel>
+                <!-- Status Card -->
+                <Border Background="White" 
+                        Margin="0,0,0,20" 
+                        Padding="20" 
+                        CornerRadius="8"
+                        BorderThickness="0"
+                        Effect="{StaticResource ShadowEffect}">
+                    <StackPanel>
+                        <Border Background="#DFF0D8" 
+                                Padding="10" 
+                                BorderThickness="0 0 0 4" 
+                                BorderBrush="#3C763D" 
+                                CornerRadius="5" 
+                                Margin="0,0,0,15">
+                            <TextBlock Text="Driver Status: Installed and Functioning (Mock Mode)" 
+                                       Foreground="#3C763D" 
+                                       FontWeight="SemiBold"/>
+                        </Border>
+                        
+                        <TextBlock Text="System Information" 
+                                   FontSize="18" 
+                                   FontWeight="SemiBold" 
+                                   Margin="0,0,0,10"/>
+                        
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Driver Version:" FontWeight="SemiBold"/>
+                            <TextBlock Text="1.0.0 (Mock)" Grid.Column="1"/>
+                        </Grid>
+                        
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Installation Date:" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="InstallDateText" Grid.Column="1"/>
+                        </Grid>
+                        
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Operating System:" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="OSVersionText" Grid.Column="1"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Actions Card -->
+                <Border Background="White" 
+                        Margin="0,0,0,20" 
+                        Padding="20" 
+                        CornerRadius="8"
+                        BorderThickness="0"
+                        Effect="{StaticResource ShadowEffect}">
+                    <StackPanel>
+                        <TextBlock Text="Driver Actions" 
+                                   FontSize="18" 
+                                   FontWeight="SemiBold" 
+                                   Margin="0,0,0,15"/>
+                        
+                        <UniformGrid Columns="2" Rows="2" HorizontalAlignment="Stretch">
+                            <Button Content="Install Driver" 
+                                    Margin="5" 
+                                    Padding="10,5" 
+                                    Background="#0078D7" 
+                                    Foreground="White"
+                                    Click="OnInstallClick"/>
+                            
+                            <Button Content="Uninstall Driver" 
+                                    Margin="5" 
+                                    Padding="10,5" 
+                                    Background="#0078D7" 
+                                    Foreground="White"
+                                    Click="OnUninstallClick"/>
+                            
+                            <Button Content="Run Tests" 
+                                    Margin="5" 
+                                    Padding="10,5" 
+                                    Background="#0078D7" 
+                                    Foreground="White"
+                                    Click="OnTestClick"/>
+                            
+                            <Button Content="Check for Updates" 
+                                    Margin="5" 
+                                    Padding="10,5" 
+                                    Background="#0078D7" 
+                                    Foreground="White"
+                                    Click="OnCheckUpdatesClick"/>
+                        </UniformGrid>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Diagnostics Card -->
+                <Border Background="White" 
+                        Padding="20" 
+                        CornerRadius="8"
+                        BorderThickness="0"
+                        Effect="{StaticResource ShadowEffect}">
+                    <StackPanel>
+                        <TextBlock Text="Diagnostics" 
+                                   FontSize="18" 
+                                   FontWeight="SemiBold" 
+                                   Margin="0,0,0,15"/>
+                        
+                        <TextBlock Text="Basic functionality: Working" Margin="0,2"/>
+                        <TextBlock Text="Multi-touch gestures: Working" Margin="0,2"/>
+                        <TextBlock Text="Scrolling performance: Excellent" Margin="0,2"/>
+                        <TextBlock Text="Precision: High" Margin="0,2"/>
+                        
+                        <TextBlock Text="Last updated: Just now (Mock Data)" 
+                                   Margin="0,15,0,0" 
+                                   FontStyle="Italic" 
+                                   Foreground="#666"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+    
+    <Window.Resources>
+        <DropShadowEffect x:Key="ShadowEffect" 
+                          ShadowDepth="2" 
+                          Direction="270" 
+                          Color="#DDDDDD" 
+                          Opacity="0.6" 
+                          BlurRadius="4"/>
+    </Window.Resources>
+</Window>
