@@ -1,4 +1,6 @@
-# Mac Trackpad Driver Testing Environment
+# Mac-Trackpad
+
+## Mac Trackpad Driver Testing Environment
 
 This repository contains a testing environment for the Mac Trackpad Driver. Since building the actual driver requires the Windows Driver Kit (WDK), this environment provides mock files and simulations to test the driver's functionality without requiring a full build.
 
@@ -14,8 +16,8 @@ This repository contains a testing environment for the Mac Trackpad Driver. Sinc
 
 To set up the testing environment, run:
 
-```powershell
-.\setup_build_env.ps1
+```
+.\one_click_setup.bat
 ```
 
 This script will:
@@ -24,40 +26,38 @@ This script will:
 3. Set up test configurations
 4. Create test scripts
 
-If you want to set up a real build environment with the Windows Driver Kit, follow the instructions in the WDK documentation.
-
 ## Running Tests
 
 ### Basic Tests
 
 To run basic functionality tests:
 
-```powershell
-.\src\MacTrackpadTest\RunMockedTests.cmd
+```
+.\run_tests.bat
 ```
 
 ### Installation Simulation
 
 To simulate driver installation:
 
-```powershell
-.\src\MacTrackpadSetup\SimulateInstall.cmd
+```
+.\run_install.bat
 ```
 
 ### Uninstallation Simulation
 
 To simulate driver uninstallation:
 
-```powershell
-.\src\MacTrackpadSetup\SimulateUninstall.cmd
+```
+.\run_uninstall.bat
 ```
 
-### Master Test Script
+### Control Panel
 
-To run all tests and generate reports:
+To access all tools through a menu interface:
 
-```powershell
-.\master_test.ps1 -RunAllTests -GenerateReport
+```
+.\mac_trackpad_tools_enhanced.bat
 ```
 
 ## Testing Workflow
@@ -68,17 +68,15 @@ A typical testing workflow consists of:
 2. Running installation simulation
 3. Running functionality tests
 4. Running uninstallation simulation
-5. Generating test reports
+5. Viewing the dashboard
 
 ## Mock Files
 
-The following mock files are generated:
+The following mock files are included:
 
-- `bin\x64\Release\AmtPtpDevice.sys` - Mock driver system file
-- `bin\x64\Release\AmtPtpDevice.inf` - Mock driver information file
-- `bin\x64\Release\AmtPtpDevice.cat` - Mock catalog file
-
-These files are also copied to `src\MacTrackpadSetup\Driver\` for installation testing.
+- `src\MacTrackpadSetup\SimulateInstall.cmd` - Installation simulation
+- `src\MacTrackpadSetup\SimulateUninstall.cmd` - Uninstallation simulation
+- `src\MacTrackpadTest\RunMockedTests.cmd` - Mock test runner
 
 ## Troubleshooting
 
@@ -88,12 +86,18 @@ If you encounter issues with mock installation:
 
 1. Ensure you're running the script with administrator privileges
 2. Check if the mock files exist in the correct locations
-3. Review the simulation logs
+3. Run `verify_and_repair.bat` to fix missing components
 
-### Test Failures
+### Visual Studio Code Configuration
 
-If tests fail:
+If you encounter issues with VS Code:
 
-1. Check if all mock files are present
-2. Ensure the test configuration is correct
-3. Run the `check_structure.ps1` script to verify your environment # Mac-Trackpad
+1. Run `fix_vscode_config.bat` to update your configuration
+2. This will create a simplified C/C++ properties file without WDK paths
+
+### Building the Dashboard
+
+If you want to build the C# dashboard:
+
+1. Make sure you have .NET SDK installed
+2. Run `launch_dashboard.bat` which will build and launch the application
