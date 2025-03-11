@@ -37,4 +37,4 @@ echo Note: This simplified configuration removes Windows Driver Kit (WDK) paths
 echo that were required for building the actual driver but aren't needed
 echo for your testing environment.
 echo.
-pause 
+pause
