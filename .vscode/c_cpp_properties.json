@@ -4,38 +4,21 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Program Files (x86)/Windows Kits/10/Include/wdf/kmdf/1.15",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km/crt",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared/minwin",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km/wdf",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/km/usb"
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/um",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/ucrt",
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE",
-                "NT",
-                "DRIVER",
-                "_AMD64_",
-                "_WIN64",
-                "WINNT=1"
+                "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.22621.0",
             "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64",
-            "browse": {
-                "path": [
-                    "${workspaceFolder}",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/km",
-                    "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/shared"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            "intelliSenseMode": "windows-msvc-x64"
         }
     ],
     "version": 4
-} 
+}
